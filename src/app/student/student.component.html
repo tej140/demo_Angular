@@ -1,0 +1,21 @@
+<h2 align="center"> Student Details </h2>
+
+<table align="center" border="2">
+    <tr align="center">
+        <th> Student ID </th>
+        <th> Student Name </th>
+        <th> DOB </th>
+        <th> Course </th>
+        <th> Fees </th>
+        <th> Age </th>
+    </tr>
+    <tr *ngFor="let stud of students" align="center">
+        <td> {{stud.Sid}} </td>
+        <td> {{stud.Sname   | uppercase}} </td>
+        <td> {{stud.dob     | date:'dd-MMM-yyyy'}} </td>
+        <td> {{stud.course  | uppercase}} </td>
+        <td> {{stud.fees    | currency:'INR'}} </td>
+        <td> {{stud.dob     | age}}</td>
+    </tr>
+</table>
+

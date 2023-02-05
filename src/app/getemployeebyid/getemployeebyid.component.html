@@ -1,0 +1,124 @@
+<head>
+	
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" 
+	integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" 
+	crossorigin="anonymous">
+    <title>ShowEmployees</title>
+</head>
+<body text=#483D8B>
+
+	<div class="container">
+		<!-- Modal -->
+		<div class="modal fade" id="empModal" role="dialog">
+		  <div class="modal-dialog">
+		  
+			<!-- Modal content-->
+			<div class="modal-content">
+	
+			  <div class="modal-header">
+				<h4 class="modal-title">Edit Employee</h4>
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+			  </div>
+	
+			  <div class="modal-body">
+				<table align="center">
+					<tr>
+						<td align="right"> EmployeeId </td>
+						<td align="left"><input type="number" name="empId" [(ngModel)]="editObject.empId" readonly /></td>
+					</tr>
+			
+					<tr>
+						<td align="right"> Name </td>
+						<td align="left"><input type="text" name="empName" [(ngModel)]="editObject.empName" /></td>
+					</tr>
+			
+					<tr>
+						<td align="right"> Salary </td>
+						<td align="left"><input type="text" name="salary" [(ngModel)]="editObject.salary" /></td>
+					</tr>
+	<tr>
+						<td align="right"> Gender </td>
+						<td align="left"> 
+							<select name="gender" [(ngModel)]="editObject.gender">
+								<option value="">Select Gender</option>
+								<option value="Male">Male</option>
+								<option value="Female">Female</option>
+								<option value="Other">Other</option>
+							</select>
+						</td>
+					</tr>
+			
+					<tr>
+						<td align="right">Date Of Join</td>
+						<td align="left"><input type="date" name="doj" [(ngModel)]="editObject.doj" /></td>
+					</tr>
+			
+					<tr>
+						<td align="right"> Country </td>
+						<td align="left"> 
+							<select name="country" [(ngModel)]="editObject.country">
+								<option value="">Select Country</option>
+								<option value="{{country.cca3}}" *ngFor="let country of countries"> {{country.name.common}} </option>
+							</select>
+						</td>
+					</tr>
+
+					<tr>
+						<td align="right"> Email-ID </td>
+						<td align="left"><input type="text" name="emailId" [(ngModel)]="editObject.emailId" readonly /></td>
+					</tr>
+			
+					<tr>
+						<td align="right"> Password </td>
+						<td align="left"><input type="password" name="password" [(ngModel)]="editObject.password" /></td>
+					</tr>
+					
+				</table>
+			  </div>
+			  
+			  <div class="modal-footer">
+				<button type="button" class="btn btn-success" (click)="updateEmployee()" data-dismiss="modal">Update Employee</button>
+			  </div>
+			</div>        
+		  </div>
+		</div>    
+	  </div>
+<div align="center">
+    <input type="text" [(ngModel)]="empId"><br /><br/>
+    <button class="btn btn-primary" (click)="showEmployee()">Show
+    Employee</button><br /><br/><br/>
+    <div class="container">
+    <div align="center" *ngIf="employee">
+    <h1 class="head1Color">NPCI PVT. LTD.</h1>
+    <table class="table table-bordered table-striped table-hover tablesm">
+    <thead>
+    <tr class="bg-info">
+    <th>empID</th>
+    <th>empNAME</th>
+    <th>SALARY</th>
+    <th>GENDER</th>
+    <th>DATE OF Birth</th>
+    <th>Country</th>
+    <th>EmailId</th>
+    <th>Password</th>
+    <th>Experience</th>
+    <th colspan="2">Actions</th>
+    </tr>
+    </thead>
+    <tr>
+        <td> {{employee.empId}} </td>
+        <td> {{employee.empName |gender:employee.gender | uppercase}} </td>
+        <td> {{employee.salary | currency:'INR'}} </td>
+        <td> {{employee.gender | lowercase}} </td>
+        <td> {{employee.doj | date:'dd-MMM-yyyy'}} </td>
+        <td> {{employee.country}}</td>
+        <td> {{employee.emailId}} </td>
+        <td> {{employee.password}} </td>
+        <td> {{employee.doj | exp}} </td>
+        <td><button (click)="editEmployee(employee)"><span class="glyphicon glyphicon-pencil"></span></button> </td>
+		<td><button (click)="deleteEmployee(employee)"><span class="glyphicon glyphicon-trash"></span></button></td>
+    </tr>
+    </table>
+    </div>
+</div>
+    </div>

@@ -1,0 +1,51 @@
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" 
+    integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" 
+    crossorigin="anonymous">
+</head>
+<br/>
+<div class="container">
+<form #loginForm="ngForm" (ngSubmit)="submitForm(loginForm.value)" novalidate>
+    
+    <div class="input-group">
+    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+    <input class="form-control" type="text" name="emailId" ngModel required minlength="2" maxlength="25" #emailId="ngModel"  /> <br/>
+    </div>
+    <br/>
+    <div class="input-group">
+    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+    <input class="form-control" type="password" name="password" ngModel required minlength="2" maxlength="10" #password="ngModel" /> <br/>
+    </div>
+    <br/>
+    <button [disabled]="!loginForm.valid" class="btn btn-primary"> Login </button><br/>
+</form>
+</div>
+
+<div style="color:red;">
+    <div *ngIf="emailId.errors?.['required'] && emailId.touched"> Please Enter Data in Email-Id Feild</div>
+    <div *ngIf="emailId.errors?.['minlength'] && emailId.touched"> Please Enter atleast 2 characters in Email-Id Feild</div>
+
+    <div *ngIf="password.errors?.['required'] && password.touched"> Please Enter Data in password Feild</div>
+    <div *ngIf="password.errors?.['minlength'] && password.touched"> Please Enter atleast 2 characters in password Feild</div>
+</div>
+<!-- 
+<br/><br/>
+emailId: {{emailId}} <br/>
+password: {{password}} <br/> -->
+
+
+
+
+
+
+
+
+<!-- <div class="login-form">
+<h1>LogIn Page</h1>
+
+<input class="form-control" type="text" [(ngModel)]="EmailId"  placeholder="EmailId"><br/>
+<input class="form-control" type="password" [(ngModel)]="password"  placeholder="Password"><br/>
+
+
+<button class="btn" (click)="isValid()">Submit</button>
+</div> -->

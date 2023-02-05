@@ -1,0 +1,21 @@
+Enter Your Name:  <input type="text" [(ngModel)]="person.name"  /> <br/>
+Enter Your Age : <input type="text" [(ngModel)]="person.age"    /> <br/>
+Enter Your Sal : <input type="text" [(ngModel)]="person.salary" /> <br/> <br/>
+
+<button (click)="showMessage()"> Click here </button>
+
+<h2>Person Details</h2>
+
+Name: {{person.name}} <br/>
+Age : {{person.age}} <br/>
+Sal : {{person.salary}} <br/> <br/>
+
+<h3> Address </h3>
+DoorNo : {{person.address.doorNo}} <br/>
+StreetNo : {{person.address.street}} <br/>
+City : {{person.address.city}} <br/> <br/>
+
+<h3> Hobbies </h3>
+<ol>
+    <li *ngFor="let hobby of person.hobbies"> {{hobby}} </li>
+</ol>

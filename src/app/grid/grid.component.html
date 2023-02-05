@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row">
+
+
+      <div *ngFor="let card of products" class="col-xl-3 col-lg-3 col-md-4 col-sm-4 col-xs-6 "
+          >
+      <br/>
+      <div class="card card-hover" >
+          <img class="card-img-top" src={{card.imgPath}} alt={{card.description}} style="width:100%; height:250px">
+
+          <div class="card-body" style="text-align: center;">
+              <h5 class="card-title">{{card.productName}}</h5>
+              <p class="card-text" align="left">{{card.description}}</p>
+              <h5 align="left">{{card.productPrice | currency:'INR'}}</h5>
+              <p align="right"> 
+                  
+                  <button class="btn btn-primary" (click)='addToCart(card)'> Add to Cart </button>
+                  <button class="btn btn-danger"  (click)="deleteProduct(card)"><span class="glyphicon glyphicon-trash"></span></button>
+              </p>
+          </div>
+      </div>
+      </div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+tr:hover {background-color: #D6EEEE;}
+
+ th, td {
+    border: 1px solid black;
+  border-collapse: collapse;
+  border-color: #96D4D4;
+  }
+th{
+    color:navy;
+}
+table{
+    border: 1px solid black;
+  border-radius: 5px;
+}
